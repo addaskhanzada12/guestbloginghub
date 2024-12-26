@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Blogging Hub</title>
+    <style>
+        /* Resetting some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Basic Layout */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #2c6a4e;
+            color: #fff;
+            padding: 20px 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        header .logo h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        /* Main content container */
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 100px;
+            padding: 0 20px;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .welcome h2 {
+            font-size: 2.5em;
+            color: #2c6a4e;
+        }
+
+        .welcome p {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        /* Table Section */
+        .guest-posting-table {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .guest-posting-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+
+        .guest-posting-table th, .guest-posting-table td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .guest-posting-table th {
+            background-color: #2c6a4e;
+            color: white;
+        }
+
+        .guest-posting-table td {
+            background-color: #f4f4f4;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #fff;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c6a4e;
+            margin-bottom: 30px;
+        }
+
+        .service-boxes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .service-box {
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 23%;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-box h3 {
+            font-size: 1.8em;
+            color: #2c6a4e;
+        }
+
+        .service-box p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            background-color: #34495e;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-us ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .why-choose-us li {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            color: #2c6a4e;
+            text-align: center;
+        }
+
+        .testimonial-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-box em {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Team Section */
+        .team {
+            background-color: #fff;
+            padding: 50px 20px;
+        }
+
+        .team h2 {
+            font-size: 2.5em;
+            color: #2c6a4e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-member {
+            width: 22%;
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: 1.5em;
+            color: #2c6a4e;
+            margin-top: 10px;
+        }
+
+        .team-member p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #34495e;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2c6a4e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>GuestBloggingHub.com</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        
+        <a href='https://postimagesorg/' target='_blank'><img src='https://i.postimg.cc/SNT8qTqz/new-final-1.png' border='0' alt='new-final-1'/></a>
+        
+        <!-- Welcome Section -->
+        <section class="welcome" id="about">
+            <h2>Welcome to Guest Blogging Hub - Your Trusted Guest Post & Link Building Partner</h2>
+            <p>At Guest Blogging Hub, we specialize in providing high-quality guest post and link-building services to boost your online presence. Whether you're looking to increase organic traffic, enhance your domain authority, or improve your search engine rankings, we are here to help you achieve your goals with effective and ethical SEO strategies.</p>
+            <p>Our guest posting services ensure that your content gets published on reputable, high-traffic websites, driving both brand visibility and relevant backlinks to improve your website's SEO performance. We focus on providing natural, white-hat SEO strategies that align with Google’s guidelines to help you build long-term success.</p>
+        </section>
+
+        <!-- Table for Guest Posting Websites -->
+        <section class="guest-posting-table">
+            <h2>Top World Leading Guest Posting Websites</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Website Link</th>
+                        <th>DA</th>
+                        <th>DR</th>
+                        <th>Traffic</th>
+                        <th>Dofollow/Nofollow</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MSN.com</td>
+                        <td>94</td>
+                        <td>92</td>
+                        <td>35M</td>
+                        <td>Dofollow</td>
+                        <td>General</td>
+                    </tr>
+                    <tr>
+                        <td>Outlookindia.com</td>
+                        <td>91</td>
+                        <td>89</td>
+                        <td>6.2M</td>
+                        <td>Nofollow</td>
+                        <td>General</td>
+                    </tr>
+                    <tr>
+                        <td>Benzinga.com</td>
+                        <td>89</td>
+                        <td>86</td>
+                        <td>526K</td>
+                        <td>Dofollow</td>
+                        <td>Finance</td>
+                    </tr>
+                    <tr>
+                        <td>Apnews.com</td>
+                        <td>66</td>
+                        <td>91</td>
+                        <td>21M</td>
+                        <td>Nofollow</td>
+                        <td>News</td>
+                    </tr>
+                    <tr>
+                        <td>Techbullion.com</td>
+                        <td>49</td>
+                        <td>79</td>
+                        <td>166K</td>
+                        <td>Dofollow</td>
+                        <td>Tech</td>
+                    </tr>
+                    <tr>
+                        <td>Guardian.ng</td>
+                        <td>86</td>
+                        <td>48</td>
+                        <td>1.8M</td>
+                        <td>Dofollow</td>
+                        <td>News</td>
+                    </tr>
+                    <tr>
+                        <td>Heckhome.com</td>
+                        <td>56</td>
+                        <td>45</td>
+                        <td>5.3K</td>
+                        <td>Dofollow</td>
+                        <td>Home</td>
+                    </tr>
+                    <tr>
+                        <td>Finance.yahoo.com</td>
+                        <td>79</td>
+                        <td>100</td>
+                        <td>78M</td>
+                        <td>Nofollow</td>
+                        <td>Finance</td>
+                    </tr>
+                    <tr>
+                        <td>Azbigmedia.com</td>
+                        <td>65</td>
+                        <td>78</td>
+                        <td>36K</td>
+                        <td>Dofollow</td>
+                        <td>Business/Real Estate</td>
+                    </tr>
+                    <tr>
+                        <td>Credihealth.com</td>
+                        <td>70</td>
+                        <td>52</td>
+                        <td>136K</td>
+                        <td>Dofollow</td>
+                        <td>Health</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <h2>Our Services</h2>
+            <div class="service-boxes">
+                <div class="service-box">
+                    <h3>Guest Posting</h3>
+                    <p>Secure high-quality guest post placements on authority sites in your niche.</p>
+                </div>
+                <div class="service-box">
+                    <h3>Link Building</h3>
+                    <p>Ethical link-building services that improve domain authority and search engine rankings.</p>
+                </div>
+                <div class="service-box">
+                    <h3>Content Creation</h3>
+                    <p>Professionally written content that’s both SEO-optimized and engaging for your target audience.</p>
+                </div>
+                <div class="service-box">
+                    <h3>Outreach Campaigns</h3>
+                    <p>A tailored approach to connect with website owners, bloggers, and influencers in your industry.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us" id="why-choose-us">
+            <h2>Why Choose GuestBloggingHub.com?</h2>
+            <ul>
+                <li><strong>Premium Placements</strong> - High-quality guest posts on authoritative, high-traffic sites.</li>
+                <li><strong>Ethical Practices</strong> - White-hat SEO strategies for long-term, sustainable results.</li>
+                <li><strong>Niche Targeting</strong> - Guest posts on relevant industry websites for targeted traffic.</li>
+                <li><strong>Proven Results</strong> - Track record of boosting rankings, traffic, and authority.</li>
+                <li><strong>Expert Team</strong> - Dedicated SEO professionals driving your success.</li>
+                <li><strong>Flexible Packages</strong> - Scalable solutions for businesses of all sizes.</li>
+            </ul>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-box">
+                <p>"We’ve been working with Guest Blogging Hub for over a year, and their guest posting service has truly helped us increase our domain authority and traffic. The quality of the sites they’ve secured for us is exceptional!"</p>
+                <em>- John D., CEO, Digital Marketing Agency</em>
+            </div>
+            <div class="testimonial-box">
+                <p>"The guest posts they secured for us brought real value. Our website traffic has increased significantly."</p>
+                <em>- Emily R., Marketing Manager, E-commerce Business</em>
+            </div>
+            <div class="testimonial-box">
+                <p>"Nothing compares to the level of professionalism we’ve received. Our website is growing faster than ever thanks to their SEO efforts."</p>
+                <em>- Brian T., Founder, Tech Startup</em>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team">
+            <h2>Meet the Team</h2>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Team Member">
+                <h3>Jane Doe</h3>
+                <p>CEO & Founder</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Team Member">
+                <h3>John Smith</h3>
+                <p>SEO Specialist</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Team Member">
+                <h3>Mary Johnson</h3>
+                <p>Content Strategist</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Team Member">
+                <h3>David Brown</h3>
+                <p>Outreach Manager</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to our team today and see how we can help your business grow!</p>
+            <p>Email: contact@guestblogginghub.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 GuestBloggingHub.com. All rights reserved.</p>
+    </footer>
+</body>
+</html>
